@@ -44,7 +44,7 @@ class Library {
         fun checkoutBook(book: Book, dueDate: String) {
             if (book.status is BookStatus.Available) {
                 book.status = BookStatus.CheckedOut(dueDate)
-                println("Das Buch '${book.title}' wurde von $name (ID: $memberId) ausgeliehen. Rückgabedatum: $dueDate.")
+                println(book.status.getReadableStatus()+" from Member with ID: "+ memberId)
             } else {
                 println("Das Buch '${book.title}' ist nicht verfügbar. Aktueller Status: ${book.status}.")
             }
@@ -54,7 +54,7 @@ class Library {
         fun reserveBook(book: Book) {
             if (book.status is BookStatus.Available) {
                 book.status = BookStatus.Reserved(name)
-                println("Das Buch '${book.title}' wurde von $name (ID: $memberId) reserviert.")
+                println(book.status.getReadableStatus()+" with ID: "+ memberId)
             } else {
                 println("Das Buch '${book.title}' kann nicht reserviert werden. Aktueller Status: ${book.status}.")
             }

@@ -13,8 +13,8 @@ sealed class BookStatus {
     fun getReadableStatus(): String {
         return when (this) {
             is Available -> "Das Buch ist verfügbar."
-            is CheckedOut -> "Das Buch ist ausgeliehen. Rückgabedatum: $dueDate"
-            is Reserved -> "Das Buch ist reserviert von $reservedBy."
+            is CheckedOut -> "Das Buch ist ausgeliehen, Rückgabedatum: $dueDate."
+            is Reserved -> "Das Buch ist reserviert von $reservedBy"
             else -> "Unbekannter Status."
         }
     }
